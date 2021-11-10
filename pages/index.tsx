@@ -47,6 +47,7 @@ function Form({ subscribe, status, message }: any) {
           bgImage="radial-gradient(139.24% 1879.93% at -25.95% 48.84%, #CCFBFF 0%, #FEECEC 57.36%, #D9CCFF 100%)"
           bgColor="#CCFBFF"
           _hover={{ bgColor: "#FEECEC" }}
+          color="gray.800"
           rounded="24px"
           py={3}
           px={8}
