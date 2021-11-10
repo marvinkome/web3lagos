@@ -4,6 +4,7 @@ import Head from "next/head";
 
 const theme = extendTheme({
   config: {
+    initialColorMode: "light",
     useSystemColorMode: false,
   },
   fonts: {
