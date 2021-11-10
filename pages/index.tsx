@@ -59,6 +59,10 @@ function Form({ subscribe, status, message }: any) {
         </Button>
       </Stack>
 
+      <Text display={{ base: status === null ? "initial" : "none", md: "none" }} fontSize="sm" color="#FFD1FA">
+        Join the waitlist
+      </Text>
+
       {status === "success" && (
         <Text fontSize="sm" color="#14ff00fc">
           You’ve joined the waitlist!
