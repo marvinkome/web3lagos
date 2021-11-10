@@ -54,7 +54,7 @@ function Form({ subscribe, status, message }: any) {
           isLoading={status === "sending"}
           type="submit"
         >
-          <chakra.span display={{ base: "initial", md: "none" }}>Enter</chakra.span>
+          <chakra.span display={{ base: "initial", md: "none" }}>Join</chakra.span>
           <chakra.span display={{ base: "none", md: "initial" }}>Join the waitlist</chakra.span>
         </Button>
       </Stack>
