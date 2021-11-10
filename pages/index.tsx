@@ -1,7 +1,7 @@
 import React, { useEffect } from "react";
 import type { NextPage } from "next";
-import Head from "next/head";
-import { chakra, Heading, Image, Stack, Text, Container, Input, Button, useBreakpointValue } from "@chakra-ui/react";
+import NextImage from "next/image";
+import { chakra, Heading, Stack, Text, Container, Input, Button } from "@chakra-ui/react";
 import MailchimpSubscribe from "react-mailchimp-subscribe";
 
 function Form({ subscribe, status, message }: any) {
@@ -82,17 +82,8 @@ const Home: NextPage = () => {
       bgPosition="top center"
       bgImage="url('/background-image.png')"
     >
-      <Head>
-        <title>Web3Lagos</title>
-        <meta
-          name="description"
-          content="A conference for people interested in building for the next phase of the internet.  "
-        />
-        <link rel="icon" href="/favicon.png" />
-      </Head>
-
       <Stack align="center" textAlign="center" spacing={{ base: 8, md: 8 }}>
-        <Image src="/logo.png" alt="eth logo" boxSize={{ base: "40%", md: "10%" }} />
+        <NextImage src="/logo.png" alt="eth logo" width="150px" height="173px" />
 
         <Heading
           fontSize={{ base: "5xl", md: "9xl" }}
