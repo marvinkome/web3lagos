@@ -1,7 +1,8 @@
 import React, { useEffect } from "react";
 import type { NextPage } from "next";
 import NextImage from "next/image";
-import { chakra, Heading, Stack, Text, Container, Input, Button } from "@chakra-ui/react";
+import { chakra, Heading, Stack, Text, Container, Input, Button, Link, Icon } from "@chakra-ui/react";
+import { FaTwitter } from "react-icons/fa";
 import MailchimpSubscribe from "react-mailchimp-subscribe";
 
 function Form({ subscribe, status, message }: any) {
@@ -113,6 +114,10 @@ const Home: NextPage = () => {
             <Text color="#FFD1FA" textTransform="uppercase">
               december 2021
             </Text>
+
+            <Link href="https://twitter.com/web3lagos" isExternal>
+              <Icon as={FaTwitter} fontSize="4xl" color="twitter.500" />
+            </Link>
           </Stack>
         </Container>
       </Stack>
