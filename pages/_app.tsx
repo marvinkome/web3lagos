@@ -11,6 +11,13 @@ const theme = extendTheme({
     body: "'Inter', sans-serif",
     heading: "'Inter', sans-serif",
   },
+  styles: {
+    global: {
+      "html, body": {
+        background: "#08060D",
+      },
+    },
+  },
 });
 
 function MyApp({ Component, pageProps }: AppProps) {
