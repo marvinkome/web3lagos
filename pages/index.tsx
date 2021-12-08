@@ -127,102 +127,111 @@ const Home: NextPage = () => {
             <Text
               bgGradient="linear-gradient(90.54deg, rgba(255, 204, 250, 0.98) -16.77%, #EBFDFF 43.34%, #B499FF 110.18%)"
               bgClip="text"
-              fontSize="2xl"
+              fontSize="4xl"
               fontWeight="900"
             >
-              Sponsored by
+              Sponsors
             </Text>
 
-            <Image src="/helicarrier.svg" alt="helicarrier logo" boxSize={{ base: "60%", md: "20%" }} />
+            <Link href="https://helicarrier.studio/" isExternal textAlign="center">
+              <Image src="/helicarrier.svg" alt="helicarrier logo" mx="auto" boxSize={{ base: "80%", md: "100%" }} />
+            </Link>
           </Stack>
         </Box>
       </chakra.div>
 
       <Container maxW="container.lg">
-        <Stack align="center" textAlign="center" my={16} spacing={10}>
+        <Stack align="center" textAlign="center" my={16} spacing={16}>
           <Heading
-            fontWeight="900"
             bgGradient="linear-gradient(90.54deg, rgba(255, 204, 250, 0.98) -16.77%, #EBFDFF 43.34%, #B499FF 110.18%)"
             bgClip="text"
+            fontSize="4xl"
+            fontWeight="900"
           >
             Speakers
           </Heading>
 
           <Stack
             direction={{ base: "column", md: "row" }}
-            justify="space-between"
+            justify="space-around"
             spacing={{ base: 12, md: 24 }}
             w="full"
           >
-            <Stack
-              minW="280px"
-              py={8}
-              rounded="25px"
-              spacing={3}
-              align="center"
-              justify="center"
-              bgImage="linear-gradient(146.78deg, #7A0BEA 0%, rgba(122, 11, 234, 0) 86.34%)"
-            >
-              <Image src="/lenny.svg" alt="Lenny Johnson" boxSize="100px" />
-
-              <Text color="#81C9FF" fontWeight="500">
-                Lenny Johnson
-              </Text>
-              <Text
-                bgGradient="linear-gradient(90.54deg, #FFFFFF -16.77%, #EBFDFF 43.34%, #B499FF 110.18%)"
-                bgClip="text"
+            <Link href="https://twitter.com/TheLennyJohnson" isExternal>
+              <Stack
+                minW="280px"
+                py={8}
+                rounded="25px"
+                spacing={3}
+                align="center"
+                justify="center"
+                bgImage="linear-gradient(146.78deg, #7A0BEA 0%, rgba(122, 11, 234, 0) 86.34%)"
               >
-                On Nigeria And DAOs
-              </Text>
-            </Stack>
+                <Image src="/lenny.svg" alt="Lenny Johnson" boxSize="100px" />
 
-            <Stack
-              minW="280px"
-              py={8}
-              rounded="25px"
-              spacing={3}
-              align="center"
-              justify="center"
-              bgImage="linear-gradient(146.78deg, #7A0BEA 0%, rgba(122, 11, 234, 0) 86.34%)"
-            >
-              <Image src="/daniel.svg" alt="Daniel Obiokeke" boxSize="100px" />
+                <Text color="#81C9FF" fontWeight="500">
+                  Lenny Johnson
+                </Text>
+                <Text
+                  bgGradient="linear-gradient(90.54deg, #FFFFFF -16.77%, #EBFDFF 43.34%, #B499FF 110.18%)"
+                  bgClip="text"
+                >
+                  On Nigeria And DAOs
+                </Text>
+              </Stack>
+            </Link>
 
-              <Text color="#81C9FF" fontWeight="500">
-                Daniel Obiokeke
-              </Text>
-              <Text
-                bgGradient="linear-gradient(90.54deg, #FFFFFF -16.77%, #EBFDFF 43.34%, #B499FF 110.18%)"
-                bgClip="text"
+            <Link href="https://twitter.com/obiokeke_" isExternal>
+              <Stack
+                minW="280px"
+                py={8}
+                rounded="25px"
+                spacing={3}
+                align="center"
+                justify="center"
+                bgImage="linear-gradient(146.78deg, #7A0BEA 0%, rgba(122, 11, 234, 0) 86.34%)"
               >
-                On Smart Contracts
-              </Text>
-            </Stack>
+                <Image src="/daniel.svg" alt="Daniel Obiokeke" boxSize="100px" />
 
-            <Stack
-              minW="280px"
-              py={8}
-              rounded="25px"
-              spacing={3}
-              align="center"
-              justify="center"
-              bgImage="linear-gradient(146.78deg, #7A0BEA 0%, rgba(122, 11, 234, 0) 86.34%)"
-            >
-              <Image src="/david.png" alt="David Adamu" boxSize="100px" />
+                <Text color="#81C9FF" fontWeight="500">
+                  Daniel Obiokeke
+                </Text>
+                <Text
+                  bgGradient="linear-gradient(90.54deg, #FFFFFF -16.77%, #EBFDFF 43.34%, #B499FF 110.18%)"
+                  bgClip="text"
+                >
+                  On Smart Contracts
+                </Text>
+              </Stack>
+            </Link>
 
-              <Text color="#81C9FF" fontWeight="500">
-                David Adamu
-              </Text>
-              <Text
-                bgGradient="linear-gradient(90.54deg, #FFFFFF -16.77%, #EBFDFF 43.34%, #B499FF 110.18%)"
-                bgClip="text"
+            <Link href="https://twitter.com/afrogodd" isExternal>
+              <Stack
+                minW="280px"
+                py={8}
+                rounded="25px"
+                spacing={3}
+                align="center"
+                justify="center"
+                bgImage="linear-gradient(146.78deg, #7A0BEA 0%, rgba(122, 11, 234, 0) 86.34%)"
               >
-                On NFTs
-              </Text>
-            </Stack>
+                <Image src="/david.png" alt="David Adamu" boxSize="100px" />
+
+                <Text color="#81C9FF" fontWeight="500">
+                  David Adamu
+                </Text>
+                <Text
+                  bgGradient="linear-gradient(90.54deg, #FFFFFF -16.77%, #EBFDFF 43.34%, #B499FF 110.18%)"
+                  bgClip="text"
+                >
+                  On NFTs
+                </Text>
+              </Stack>
+            </Link>
           </Stack>
         </Stack>
 
-        <Stack align="center" textAlign="center" my={32} spacing={10}>
+        <Stack align="center" textAlign="center" my={32} spacing={16}>
           <Heading
             fontWeight="900"
             bgGradient="linear-gradient(90.54deg, rgba(255, 204, 250, 0.98) -16.77%, #EBFDFF 43.34%, #B499FF 110.18%)"
@@ -231,56 +240,54 @@ const Home: NextPage = () => {
             Contributors
           </Heading>
 
-          <Stack
-            direction={{ base: "column", md: "row" }}
-            align="center"
-            justify="center"
-            spacing={{ base: 12, md: 24 }}
-            w="full"
-          >
-            <Stack
-              minW="280px"
-              py={8}
-              rounded="25px"
-              spacing={3}
-              align="center"
-              justify="center"
-              bgImage="linear-gradient(146.78deg, #7A0BEA 0%, rgba(122, 11, 234, 0) 86.34%)"
-            >
-              <Image src="/marvin.png" alt="Marvin Kome" boxSize="100px" />
-
-              <Text color="#81C9FF" fontWeight="500">
-                Marvin Kome
-              </Text>
-              <Text
-                bgGradient="linear-gradient(90.54deg, #FFFFFF -16.77%, #EBFDFF 43.34%, #B499FF 110.18%)"
-                bgClip="text"
+          <Stack direction={{ base: "column", md: "row" }} justify="center" spacing={{ base: 12, md: 24 }} w="full">
+            <Link href="https://twitter.com/marvinkome" isExternal>
+              <Stack
+                minW="280px"
+                py={8}
+                rounded="25px"
+                spacing={3}
+                align="center"
+                justify="center"
+                bgImage="linear-gradient(146.78deg, #7A0BEA 0%, rgba(122, 11, 234, 0) 86.34%)"
               >
-                Development
-              </Text>
-            </Stack>
+                <Image src="/marvin.png" alt="Marvin Kome" boxSize="100px" />
 
-            <Stack
-              minW="280px"
-              py={8}
-              rounded="25px"
-              spacing={3}
-              align="center"
-              justify="center"
-              bgImage="linear-gradient(146.78deg, #7A0BEA 0%, rgba(122, 11, 234, 0) 86.34%)"
-            >
-              <Image src="/roosevelt.svg" alt="Roosevelt Innocent" boxSize="100px" />
+                <Text color="#81C9FF" fontWeight="500">
+                  Marvin Kome
+                </Text>
+                <Text
+                  bgGradient="linear-gradient(90.54deg, #FFFFFF -16.77%, #EBFDFF 43.34%, #B499FF 110.18%)"
+                  bgClip="text"
+                >
+                  Development
+                </Text>
+              </Stack>
+            </Link>
 
-              <Text color="#81C9FF" fontWeight="500">
-                Roosevelt Innocent
-              </Text>
-              <Text
-                bgGradient="linear-gradient(90.54deg, #FFFFFF -16.77%, #EBFDFF 43.34%, #B499FF 110.18%)"
-                bgClip="text"
+            <Link href="https://twitter.com/Roosevelt_AI" isExternal>
+              <Stack
+                minW="280px"
+                py={8}
+                rounded="25px"
+                spacing={3}
+                align="center"
+                justify="center"
+                bgImage="linear-gradient(146.78deg, #7A0BEA 0%, rgba(122, 11, 234, 0) 86.34%)"
               >
-                Design
-              </Text>
-            </Stack>
+                <Image src="/roosevelt.svg" alt="Roosevelt Innocent" boxSize="100px" />
+
+                <Text color="#81C9FF" fontWeight="500">
+                  Roosevelt Innocent
+                </Text>
+                <Text
+                  bgGradient="linear-gradient(90.54deg, #FFFFFF -16.77%, #EBFDFF 43.34%, #B499FF 110.18%)"
+                  bgClip="text"
+                >
+                  Design
+                </Text>
+              </Stack>
+            </Link>
           </Stack>
         </Stack>
 
