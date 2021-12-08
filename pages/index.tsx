@@ -114,7 +114,7 @@ const Home: NextPage = () => {
               />
 
               <Text color="#FFD1FA" textTransform="uppercase">
-                december 2021
+                12pm december 18th 2021
               </Text>
 
               <Link href="https://twitter.com/web3lagos" isExternal>
@@ -130,7 +130,7 @@ const Home: NextPage = () => {
               fontSize="4xl"
               fontWeight="900"
             >
-              Sponsors
+              Sponsor
             </Text>
 
             <Link href="https://helicarrier.studio/" isExternal textAlign="center">
