@@ -49,6 +49,31 @@ describe("Web3Lagos", () => {
     expect(newBalanceOfAcc2.toString()).to.be.eq("1");
   });
 
+  it("owner can mint to multiple accounts", async () => {
+    const acc2Addr = await account2.getAddress();
+    const acc3Addr = await account3.getAddress();
+
+    // initial balance of account2
+    const initBalanceOfAcc2 = await Web3Lagos.balanceOf(acc2Addr);
+    expect(initBalanceOfAcc2.toString()).to.be.eq("0");
+
+    // initial balance of account3
+    const initBalanceOfAcc3 = await Web3Lagos.balanceOf(acc3Addr);
+    expect(initBalanceOfAcc3.toString()).to.be.eq("0");
+
+    // mint token
+    const tx = await Web3Lagos.connect(account1).mintMultiple([acc2Addr, acc3Addr]);
+    await tx.wait();
+
+    // check balance of account2
+    const newBalanceOfAcc2 = await Web3Lagos.balanceOf(acc2Addr);
+    expect(newBalanceOfAcc2.toString()).to.be.eq("1");
+
+    // check balance of account2
+    const newBalanceOfAcc3 = await Web3Lagos.balanceOf(acc3Addr);
+    expect(newBalanceOfAcc3.toString()).to.be.eq("1");
+  });
+
   it("owner can't mint more than max", async () => {
     const acc2Addr = await account2.getAddress();
 

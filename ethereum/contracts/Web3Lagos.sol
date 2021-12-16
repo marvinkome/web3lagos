@@ -40,6 +40,18 @@ contract Web3Lagos is
         return _totalSupply();
     }
 
+    function mintMultiple(address[] memory _to) public onlyOwner {
+        uint256 total = _totalSupply();
+        uint256 addressCount = _to.length;
+
+        require(total + _to.length <= MAX_ELEMENTS, "Max limit");
+        require(total <= MAX_ELEMENTS, "Sale end");
+
+        for (uint256 i = 0; i < addressCount; i++) {
+            _mintAnElement(_to[i]);
+        }
+    }
+
     function mint(address _to) public onlyOwner {
         uint256 total = _totalSupply();
         require(total + 1 <= MAX_ELEMENTS, "Max limit");
