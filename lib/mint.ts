@@ -74,9 +74,10 @@ export function useMint() {
           status: "success",
         });
       } catch (err: any) {
+        console.error(err);
+
         toast({
           title: "Error minting NFTs",
-          description: err.message,
           position: "top-right",
           status: "error",
         });

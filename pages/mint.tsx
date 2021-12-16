@@ -3,7 +3,7 @@ import type { NextPage } from "next";
 import * as ethers from "ethers";
 import { useWeb3React, Web3ReactProvider } from "@web3-react/core";
 import { Button, Container, Heading, Stack } from "@chakra-ui/react";
-import { useConnectWallet } from "lib/wallet";
+import { useConnectWallet, useEagerConnect, useInactiveListener } from "lib/wallet";
 import { useMint } from "lib/mint";
 
 function getLibrary(provider: any): ethers.providers.Web3Provider {
@@ -16,6 +16,17 @@ const Mint = () => {
   const { account } = useWeb3React();
   const { connect, pending } = useConnectWallet();
   const { loading, inputProps, openFilePicker } = useMint();
+
+  // try to eagerly connect to an injected provider, if it exists and has granted access already
+  const triedEager = useEagerConnect();
+
+  // when there's no account connected, react to logins (broadly speaking) on the injected provider, if it exists
+  useInactiveListener(!triedEager);
+
+  // on page load, do nothing until we've tried to connect to the injected connector
+  if (!triedEager) {
+    return null;
+  }
 
   return (
     <Container h="100vh" maxW="container.sm">
