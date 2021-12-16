@@ -25,6 +25,19 @@ describe("Web3Lagos", () => {
     expect(Web3Lagos.address).to.exist;
   });
 
+  it("can transfer ownership", async () => {
+    const addr = await account2.getAddress();
+    const currentOwner = await Web3Lagos.owner();
+
+    const tx = await Web3Lagos.connect(account1).transferOwnership(addr);
+    await tx.wait();
+
+    const newOwner = await Web3Lagos.owner();
+
+    expect(newOwner).to.not.be.eq(currentOwner);
+    expect(newOwner).to.be.eq(addr);
+  });
+
   it("only owner can mint", async () => {
     const addr = await account2.getAddress();
     const tx = Web3Lagos.connect(account2).mint(addr, 1);

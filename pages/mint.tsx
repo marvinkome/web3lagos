@@ -1,8 +1,55 @@
-import type { NextPage } from "next";
 import React from "react";
+import type { NextPage } from "next";
+import * as ethers from "ethers";
+import { useWeb3React, Web3ReactProvider } from "@web3-react/core";
+import { Button, Container, Heading, Stack } from "@chakra-ui/react";
+import { useConnectWallet } from "lib/wallet";
+import { useMint } from "lib/mint";
 
-const Mint: NextPage = () => {
-  return <p>Page to Mint NFT</p>;
+function getLibrary(provider: any): ethers.providers.Web3Provider {
+  const library = new ethers.providers.Web3Provider(provider);
+  library.pollingInterval = 12000;
+  return library;
+}
+
+const Mint = () => {
+  const { account } = useWeb3React();
+  const { connect, pending } = useConnectWallet();
+  const { loading, inputProps, openFilePicker } = useMint();
+
+  return (
+    <Container h="100vh" maxW="container.sm">
+      <Stack h="100%" textAlign="center" align="center" justify="center" spacing={10}>
+        <Heading
+          fontWeight="900"
+          bgGradient="linear-gradient(90.54deg, rgba(255, 204, 250, 0.98) -16.77%, #EBFDFF 43.34%, #B499FF 110.18%)"
+          bgClip="text"
+        >
+          Web3 Lagos - Mint
+        </Heading>
+
+        {account ? (
+          <Button isLoading={loading} onClick={openFilePicker}>
+            Let it rain
+          </Button>
+        ) : (
+          <Button isLoading={pending} onClick={connect}>
+            Connect account
+          </Button>
+        )}
+
+        <input {...inputProps} />
+      </Stack>
+    </Container>
+  );
 };
 
-export default Mint;
+const PageWrapper: NextPage = () => {
+  return (
+    <Web3ReactProvider getLibrary={getLibrary}>
+      <Mint />
+    </Web3ReactProvider>
+  );
+};
+
+export default PageWrapper;
