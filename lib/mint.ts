@@ -1,12 +1,13 @@
 import _uniq from "lodash.uniq";
 import Papa from "papaparse";
-import contractAddress from "abi/address.json";
 import nftABI from "abi/Web3Lagos.json";
 import { useEffect, useState } from "react";
 import { useDropzone } from "react-dropzone";
 import { useWeb3React } from "@web3-react/core";
 import { utils, providers, constants, Contract } from "ethers";
 import { useToast } from "@chakra-ui/toast";
+
+const nftAddress = process.env.NEXT_PUBLIC_CONTRACT_ADDR || "";
 
 function PapaParse(file: File): Promise<any> {
   return new Promise((resolve, reject) => {
@@ -42,6 +43,10 @@ export function useMint() {
 
     const fn = async () => {
       try {
+        if (!account) {
+          console.error(`No account connected'.`);
+        }
+
         const { data } = await PapaParse(file);
 
         // mint nft for the addresses
@@ -51,18 +56,14 @@ export function useMint() {
             .filter((addr: string) => utils.isAddress(addr) && addr !== constants.AddressZero)
         );
 
-        if (!utils.isAddress(contractAddress.nftAddress) || contractAddress.nftAddress === constants.AddressZero) {
-          console.error(`Invalid contract address '${contractAddress.nftAddress}'.`);
+        if (!utils.isAddress(nftAddress) || nftAddress === constants.AddressZero) {
+          console.error(`Invalid contract address '${nftAddress}'.`);
           return null;
         }
 
-        let provider: providers.Web3Provider | providers.JsonRpcSigner = library;
-        if (!account) {
-          console.error(`No account connected'.`);
-          provider = library.getSigner(account).connectUnchecked();
-        }
+        let provider: providers.Web3Provider | providers.JsonRpcSigner = library.getSigner(account).connectUnchecked();
 
-        const nftContract = new Contract(contractAddress.nftAddress, nftABI, provider);
+        const nftContract = new Contract(nftAddress, nftABI, provider);
         const tx = await nftContract.mintMultiple(addresses);
         await tx.wait();
 
