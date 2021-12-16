@@ -11,11 +11,13 @@ async function main() {
   const Web3Lagos = await ethers.getContractFactory("Web3Lagos");
   const web3NFT = await Web3Lagos.deploy(baseURI);
 
-  // transfer ownership
-  await web3NFT.connect(deployer).transferOwnership("0x3a1e9e54f4d708e3acbdb2cfaa3ec94f34b9b02e");
-  const owner = await web3NFT.owner();
-
   console.log("Contract address:", web3NFT.address);
+
+  // transfer ownership
+  const tx = await web3NFT.connect(deployer).transferOwnership("0x3a1e9e54f4d708e3acbdb2cfaa3ec94f34b9b02e");
+  await tx.wait();
+
+  const owner = await web3NFT.owner();
   console.log("Contract owner:", owner);
 
   // save frontend files

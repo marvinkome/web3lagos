@@ -3,7 +3,7 @@ import { UnsupportedChainIdError, useWeb3React } from "@web3-react/core";
 import { InjectedConnector } from "@web3-react/injected-connector";
 
 export const injected = new InjectedConnector({
-  supportedChainIds: [137, 80001],
+  supportedChainIds: [4, 137, 80001],
 });
 
 async function switchNetwork() {

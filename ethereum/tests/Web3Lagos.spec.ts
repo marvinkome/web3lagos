@@ -91,7 +91,7 @@ describe("Web3Lagos", () => {
     const acc2Addr = await account2.getAddress();
 
     // mint token
-    for (let i = 0; i < 51; i++) {
+    for (let i = 0; i < 50; i++) {
       // mint 51 tokens
       const tx = await Web3Lagos.connect(account1).mint(acc2Addr);
       await tx.wait();

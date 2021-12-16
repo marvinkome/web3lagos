@@ -22,7 +22,7 @@ contract Web3Lagos is
 
     Counters.Counter private _tokenIdTracker;
 
-    uint256 public constant MAX_ELEMENTS = 51;
+    uint256 public constant MAX_ELEMENTS = 50;
     string public baseTokenURI;
 
     event CreateWeb3LagosNFT(uint256 indexed id);
